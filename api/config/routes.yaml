@@ -1,0 +1,3 @@
+login:
+    path: /login
+    methods:  [POST]

@@ -1,0 +1,22 @@
+###> symfony/framework-bundle ###
+.env
+/public/bundles/
+/var/log/*
+/var/cache/*
+!/var/cache/.gitkeep
+!/var/log/.gitkeep
+/vendor/*
+!/vendor/.gitkeep
+###< symfony/framework-bundle ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*
+!/config/jwt/.gitkeep
+###< lexik/jwt-authentication-bundle ###
+
+.bash_history
+.composer
+.rnd
+
+supervisord.log
+supervisord.pid

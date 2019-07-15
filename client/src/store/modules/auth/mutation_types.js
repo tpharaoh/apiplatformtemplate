@@ -1,0 +1,3 @@
+export const AUTH_UPDATE_TOKEN = 'AUTH_UPDATE_TOKEN'
+export const AUTH_ERROR_CHANGE = 'AUTH_ERROR_CHANGE'
+export const AUTH_RESET = 'AUTH_RESET'
