@@ -2,6 +2,8 @@
 
 cd proxy
 cp .env.sample .env
+docker network rm webproxy
+docker network create webproxy
 sh ./start.sh
 cd ..
 
