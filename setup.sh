@@ -35,9 +35,7 @@ docker-compose pull
 docker-compose up -d --force-recreate
 sleep 15
 docker-compose exec php chown -R www-data:www-data /var/www/
-docker-compose exec --user=www-data php composer install
-docker-compose exec --user=www-data php bin/console doctrine:schema:update --force
-docker-compose exec --user=www-data php bin/console doctrine:schema:validate
+docker-compose exec --user=www-data php sh ./api/setup.sh
 docker-compose exec --user=www-data php composer install --no-dev -o
 docker-compose exec --user=www-data php composer dump-autoload --optimize --no-dev --classmap-authoritative
 docker-compose exec --user=www-data php php bin/console cache:clear
