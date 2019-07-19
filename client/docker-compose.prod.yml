@@ -1,0 +1,27 @@
+version: '3.2'
+
+services:
+  node:
+    restart: always
+    image: "node:11"
+    user: "node"
+    working_dir: /var/www
+    environment:
+      VIRTUAL_HOST: clientdemo.yap.life
+      VIRTUAL_PORT: 3000
+      LETSENCRYPT_HOST: clientdemo.yap.life
+      LETSENCRYPT_EMAIL: info@inshop.com.ua
+      NODE_ENV: production
+      HOST: 0.0.0.0
+    volumes:
+      - ./:/var/www
+    expose:
+      - 3000
+    command: "npm start"
+    networks:
+      - webproxy
+
+networks:
+  webproxy:
+    external:
+      name: webproxy

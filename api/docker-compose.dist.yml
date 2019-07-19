@@ -1,0 +1,55 @@
+version: '3.2'
+
+services:
+  php:
+    image: inshopgroup/docker-inshop-crm-api-php-fpm-prod:latest
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+    volumes:
+      - .:/var/www:rw,cached
+    networks:
+      - api
+
+  nginx:
+    image: inshopgroup/docker-inshop-crm-api-nginx-prod:latest
+    depends_on:
+      - php
+    volumes:
+      - ./public:/var/www/public:ro
+    ports:
+      - ${PORT_API}:80
+    networks:
+      - api
+
+  db:
+    image: postgres:11.4-alpine
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    volumes:
+      - db-data:/var/lib/postgresql/data:rw
+    ports:
+      - ${PORT_DATABASE}:5432
+    networks:
+      - api
+
+  mercure:
+    image: dunglas/mercure
+    environment:
+      - JWT_KEY=${MERCURE_JWT_SECRET_KEY}
+      - ALLOW_ANONYMOUS=0
+      - CORS_ALLOWED_ORIGINS=*
+      - PUBLISH_ALLOWED_ORIGINS=*
+    ports:
+      - ${PORT_MERCURE}:80
+    networks:
+      - api
+
+volumes:
+  db-data: {}
+
+networks:
+    api:
