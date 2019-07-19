@@ -3,7 +3,7 @@ version: '3.2'
 services:
   nginx:
     restart: always
-    image: registry.inshop.com.ua/amertalk/server/docker-admin-nginx-prod
+    image: inshopgroup/docker-inshop-crm-client-nginx-prod
     environment:
       VIRTUAL_HOST: clientdemo.yap.life
       LETSENCRYPT_HOST: clientdemo.yap.life
