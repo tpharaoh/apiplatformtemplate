@@ -19,24 +19,24 @@ Since I couldn't find on I decided to post on upwork, and open source the result
 look for and replace instances of the demo domain. Please be sure DNS is done first, as it will be needed by certbox for SSL
 
 # for api folder
-api/docker-compose.yml:      VIRTUAL_HOST: apidemo.yap.life
-api/docker-compose.yml:      LETSENCRYPT_HOST: apidemo.yap.life
-api/docker-compose.yml:      - VIRTUAL_HOST=mercuredemo.yap.life
-api/docker-compose.yml:      - LETSENCRYPT_HOST=mercuredemo.yap.life
-api/docker-compose.prod.yml:      VIRTUAL_HOST: apidemo.yap.life
-api/docker-compose.prod.yml:      LETSENCRYPT_HOST: apidemo.yap.life
-api/docker-compose.prod.yml:      - VIRTUAL_HOST=mercuredemo.yap.life
-api/docker-compose.prod.yml:      - LETSENCRYPT_HOST=mercuredemo.yap.life
+* api/docker-compose.yml:      VIRTUAL_HOST: apidemo.yap.life
+* api/docker-compose.yml:      LETSENCRYPT_HOST: apidemo.yap.life
+* api/docker-compose.yml:      - VIRTUAL_HOST=mercuredemo.yap.life
+* api/docker-compose.yml:      - LETSENCRYPT_HOST=mercuredemo.yap.life
+* api/docker-compose.prod.yml:      VIRTUAL_HOST: apidemo.yap.life
+* api/docker-compose.prod.yml:      LETSENCRYPT_HOST: apidemo.yap.life
+* api/docker-compose.prod.yml:      - VIRTUAL_HOST=mercuredemo.yap.life
+* api/docker-compose.prod.yml:      - LETSENCRYPT_HOST=mercuredemo.yap.life
 
 # client folder
-client/docker-compose.prod.yml:      VIRTUAL_HOST: clientdemo.yap.life
-client/docker-compose.prod.yml:      LETSENCRYPT_HOST: clientdemo.yap.life
-client/docker-compose.yml:      VIRTUAL_HOST: clientdemo.yap.life
-client/docker-compose.yml:      LETSENCRYPT_HOST: clientdemo.yap.life
+* client/docker-compose.prod.yml:      VIRTUAL_HOST: clientdemo.yap.life
+* client/docker-compose.prod.yml:      LETSENCRYPT_HOST: clientdemo.yap.life
+* client/docker-compose.yml:      VIRTUAL_HOST: clientdemo.yap.life
+* client/docker-compose.yml:      LETSENCRYPT_HOST: clientdemo.yap.life
 
 # mobile folder
-.env.prod:VUE_APP_API_URL='https://apidemo.yap.life'
-.env.prod:VUE_APP_MERCURE_URL='https://mercuredemo.yap.life/hub'
+* .env.prod:VUE_APP_API_URL='https://apidemo.yap.life'
+* .env.prod:VUE_APP_MERCURE_URL='https://mercuredemo.yap.life/hub'
 
 # proxy
 nginx/data/conf.d/default.conf << setup all your domains
@@ -45,14 +45,14 @@ nginx/data/conf.d/default.conf << setup all your domains
 passphrase !ChangeMe!  << can be changed in env.prod
 
 # mobile app
-clone same repo to your local machine
-install cordova
-install needed emulators and SDKs
-cp .env.prod .env
-cd src-cordova
-cordova platform add ios (or other)
-cd ..
-yarn cordova-serve-ios (or replace ios with other)
+* clone same repo to your local machine
+* install cordova
+* install needed emulators and SDKs
+* cp .env.prod .env
+* cd src-cordova
+* cordova platform add ios (or other)
+* cd ..
+* yarn cordova-serve-ios (or replace ios with other)
 
 # disclaimer
 I was unable to get the apps to compile on my PC, however Maksym was, maybe a pull request from someone who knows why?
