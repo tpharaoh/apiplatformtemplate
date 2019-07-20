@@ -57,4 +57,9 @@ yarn cordova-serve-ios (or replace ios with other)
 # disclaimer
 I was unable to get the apps to compile on my PC, however Maksym was, maybe a pull request from someone who knows why?
 
+# demo
+https://apidemo.yap.life/
+https://clientdemo.yap.life/
 
+# upcoming
+We'll be posting the app soon
