@@ -1,3 +1,6 @@
+# Android APK
+We added a self signed app-release.apk to the repo. It points to the demo server. You can see Mercure auto updating in the app. (note, we only put Mercure ont he book show page, not the list)
+
 # Summary
 I was looking for a tutorial, or solution to learn from which had a few of the elements I think are key to most apps. 
 *multi tenant/teams
