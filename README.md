@@ -49,13 +49,16 @@ passphrase !ChangeMe!  << can be changed in env.prod
 
 # mobile app
 * clone same repo to your local machine
+* in client folder, yarn install && yarn build
 * install cordova
 * install needed emulators and SDKs
 * cp .env.prod .env
+* in mobile folder, yarn install && yarn build
 * cd src-cordova
 * cordova platform add ios (or other)
 * cd ..
-* yarn cordova-serve-ios (or replace ios with other)
+* cd src-cordova
+* cordova run ios (or replace ios with other)
 
 # disclaimer
 I was unable to get the apps to compile on my PC, however Maksym was, maybe a pull request from someone who knows why?
