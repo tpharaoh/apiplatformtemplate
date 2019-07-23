@@ -9,7 +9,12 @@ cd ..
 
 
 cd client
-cp .env.prod .env
+
+# for production environment
+# cp .env.prod .env
+
+# for dev environment
+cp .env.dist .env
 
 # build
 cp docker-compose.dev.yml docker-compose.yml
@@ -20,7 +25,12 @@ docker-compose exec nginx yarn run build
 docker-compose down
 
 # start
-cp docker-compose.prod.yml docker-compose.yml
+# for production environment
+# cp docker-compose.prod.yml docker-compose.yml
+
+# for dev environment
+cp docker-compose.dist.yml docker-compose.yml
+
 docker-compose pull
 docker-compose up -d --force-recreate
 cd ..
@@ -28,8 +38,14 @@ cd ..
 
 cd api
 
-cp .env.prod .env
-cp docker-compose.prod.yml docker-compose.yml
+# for production environment
+# cp .env.prod .env
+# cp docker-compose.prod.yml docker-compose.yml
+
+# for dev environment
+cp .env.dist .env
+cp docker-compose.dist.yml docker-compose.yml
+
 
 docker-compose pull
 docker-compose up -d --force-recreate
