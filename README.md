@@ -3,10 +3,10 @@ We added a self signed app-release.apk to the repo. It points to the demo server
 
 # Summary
 I was looking for a tutorial, or solution to learn from which had a few of the elements I think are key to most apps. 
-*multi tenant/teams
-*scope of data by team
-*secured live data updates
-*app setup
+* multi tenant/teams
+* scope of data by team
+* secured live data updates
+* app setup
 
 Since I couldn't find on I decided to post on upwork, and open source the result. I met Maksym: https://www.upwork.com/freelancers/~01f4204dd14c8f6973 a very bright coder, who pulled this together in record time, above and beyond expectation. I hope open sourcing this can help others who want to get onto the apiplatform (and Mercure) bandwagon
 
