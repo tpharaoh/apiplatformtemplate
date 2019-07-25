@@ -21,6 +21,9 @@ Since I couldn't find on I decided to post on upwork, and open source the result
 # how to prepare for real time communication
 look for and replace instances of the demo domain. Please be sure DNS is done first, as it will be needed by certbox for SSL
 
+# proxy
+set up your external IP in .env file
+
 # for api folder
 * api/docker-compose.yml:      VIRTUAL_HOST: apidemo.yap.life
 * api/docker-compose.yml:      LETSENCRYPT_HOST: apidemo.yap.life
