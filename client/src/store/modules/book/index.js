@@ -89,6 +89,13 @@ export const actions = {
     const url = process.env.VUE_APP_API_URL + '/books/' + id
 
     return axios.delete(url, state.item)
+  },
+  download({ state, dispatch }) {
+    const url = process.env.VUE_APP_API_URL + '/book_update_download_counts'
+
+    return axios.put(url, state.item).catch(e => {
+      dispatch('processErrors', e.response.data)
+    })
   }
 }
 

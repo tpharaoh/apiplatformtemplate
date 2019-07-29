@@ -35,6 +35,11 @@
               <button
                 type="button"
                 class="btn btn-primary mr-1"
+                @click="download(item.id)"
+              >Download</button>
+              <button
+                type="button"
+                class="btn btn-primary mr-1"
                 @click="update(item.id)"
               >
                 Update
@@ -56,6 +61,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import axios from '../../interceptor'
 
 export default {
   computed: {
@@ -74,6 +80,19 @@ export default {
       getItems: 'book/getItems',
       removeItem: 'book/remove'
     }),
+    download(id) {
+      // this.$router.push({ name: 'BookDownload', params: { id: id } })
+        const url = process.env.VUE_APP_API_URL + '/book_update_download_counts'
+        console.log(url)
+        return axios.post(url, '{"book_id": '+id+'}', {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).catch(e => {
+          // dispatch('processErrors', e.response.data)
+        })
+
+    },
     create() {
       this.$router.push({ name: 'BookCreate' })
     },

@@ -22,6 +22,7 @@ export default {
         headers: { Authorization: 'Bearer ' + this.mercureToken }
       })
       this.es.onmessage = e => {
+        console.log(e);
         callback(JSON.parse(e.data))
       }
     },

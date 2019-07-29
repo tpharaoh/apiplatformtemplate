@@ -14,6 +14,7 @@
         "symfony/flex": "^1.4",
         "symfony/framework-bundle": "^4.3",
         "symfony/mercure-bundle": "^0.1.2",
+        "symfony/messenger": "^4.2",
         "symfony/monolog-bundle": "^3.4",
         "symfony/security-bundle": "^4.3",
         "symfony/yaml": "^4.3"

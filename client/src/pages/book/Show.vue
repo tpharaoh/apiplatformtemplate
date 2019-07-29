@@ -5,7 +5,7 @@
     <table class="table">
       <tr>
         <th>Title</th>
-        <td>{{ item.title }}</td>
+        <td>{{ item.title }} ({{item.downloadCount}})</td>
       </tr>
       <tr>
         <th>Author</th>
