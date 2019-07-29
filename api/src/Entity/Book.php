@@ -8,6 +8,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Controller\BookGetCollectionController;
 use App\Controller\BookPostCollectionController;
+use App\Controller\BookPutCollectionController;
 
 /**
  * Book
@@ -44,7 +45,8 @@ use App\Controller\BookPostCollectionController;
  *              "access_control"="object.getTeam() == user.getTeam()"
  *          },
  *          "put"={
- *              "access_control"="object.getOwner() == user"
+ *              "access_control"="object.getOwner() == user",
+ *              "controller"=BookPutCollectionController::class,
  *          },
  *          "delete"={
  *              "access_control"="object.getOwner() == user"
@@ -82,6 +84,15 @@ class Book
      * @Assert\NotBlank()
      */
     private $author;
+
+    /**
+     * @ORM\Column(type="integer", nullable=false)
+     * @Groups({
+     *     "book_read",
+     *     "book_write",
+     * })
+     */
+    private $downloadCount;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Team")
@@ -152,6 +163,18 @@ class Book
     public function setOwner(?User $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getDownloadCount(): ?int
+    {
+        return $this->downloadCount;
+    }
+
+    public function setDownloadCount(?int $downloadCount): self
+    {
+        $this->downloadCount = $downloadCount;
 
         return $this;
     }
