@@ -7,6 +7,7 @@ I was looking for a tutorial, or solution to learn from which had a few of the e
 * scope of data by team
 * secured live data updates
 * app setup
+* messenger added for background data
 
 Since I couldn't find on I decided to post on upwork, and open source the result. I met Maksym: https://www.upwork.com/freelancers/~01f4204dd14c8f6973 a very bright coder, who pulled this together in record time, above and beyond expectation. I hope open sourcing this can help others who want to get onto the apiplatform (and Mercure) bandwagon
 
