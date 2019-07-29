@@ -10,6 +10,7 @@
         "lexik/jwt-authentication-bundle": "^2.6",
         "sensio/framework-extra-bundle": "^5.4",
         "symfony/console": "^4.3",
+        "symfony/dotenv": "^4.3",
         "symfony/flex": "^1.4",
         "symfony/framework-bundle": "^4.3",
         "symfony/mercure-bundle": "^0.1.2",
@@ -19,7 +20,6 @@
     },
     "require-dev": {
         "api-platform/schema-generator": "^2.1",
-        "symfony/dotenv": "^4.3",
         "symfony/maker-bundle": "^1.9",
         "symfony/profiler-pack": "^1.0",
         "symfony/var-dumper": "^4.3"

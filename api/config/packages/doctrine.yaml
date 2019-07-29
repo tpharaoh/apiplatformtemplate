@@ -13,18 +13,15 @@ parameters:
 
 doctrine:
     dbal:
-        default_connection: default
-        connections:
-            default:
-                driver: '%env(resolve:DATABASE_DRIVER)%'
-                host: '%env(resolve:DATABASE_HOST)%'
-                port: '%env(resolve:DATABASE_PORT)%'
-                dbname: '%env(resolve:DATABASE_NAME)%'
-                user: '%env(resolve:DATABASE_USER)%'
-                password: '%env(resolve:DATABASE_PASSWORD)%'
-                charset: UTF8
-                server_version: 11.4
+        # configure these for your database server
+        driver: 'pdo_mysql'
+        server_version: '5.7'
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
 
+        url: '%env(resolve:DATABASE_URL)%'
     orm:
         default_entity_manager: default
         auto_generate_proxy_classes: '%kernel.debug%'

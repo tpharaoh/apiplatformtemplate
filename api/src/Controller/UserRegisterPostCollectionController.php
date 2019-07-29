@@ -37,8 +37,8 @@ class UserRegisterPostCollectionController
         $user = new User();
         $user->setUsername($data['username']);
         $user->setName($data['name']);
-        $user->setPlainPassword($data['plainPassword']);
-        $user->setPassword($encoder->encodePassword($user, $user->getPlainPassword()));
+        // $user->setPlainPassword($data['plainPassword']);
+        $user->setPassword($encoder->encodePassword($user, $data['plainPassword']));
         $em->persist($user);
 
         if (!empty($data['team'])) {

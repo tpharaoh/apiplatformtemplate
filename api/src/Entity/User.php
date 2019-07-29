@@ -66,11 +66,6 @@ class User implements \Serializable, UserInterface
 
     /**
      * @var string
-     */
-    private $plainPassword;
-
-    /**
-     * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=false)
      * @Assert\NotBlank()
@@ -177,22 +172,6 @@ class User implements \Serializable, UserInterface
         $this->password = $password;
 
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPlainPassword(): ?string
-    {
-        return $this->plainPassword;
-    }
-
-    /**
-     * @param string $plainPassword
-     */
-    public function setPlainPassword(string $plainPassword = null): void
-    {
-        $this->plainPassword = $plainPassword;
     }
 
     public function getTeam(): Team
