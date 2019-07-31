@@ -17,9 +17,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in items" :key="item.id">
-          <td>{{ item.id }}</td>
-          <td>{{ item.title }}</td>
+        <tr v-for="(item, index)  in items" :key="item.id">
+          <td>{{index}}{{ item.id }}</td>
+          <td>{{ item.title }} {{item.downloadCount}}</td>
           <td>{{ item.author }}</td>
           <td>{{ item.owner.name }}</td>
           <td>
@@ -33,9 +33,9 @@
 
             <template v-if="item.owner.id == jwt.id">
               <button
-                type="button"
+                type="button" :id="'download-'+index"
                 class="btn btn-primary mr-1"
-                @click="download(item.id)"
+                @click="download(index,item.id,$event)"
               >Download</button>
               <button
                 type="button"
@@ -62,33 +62,61 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import axios from '../../interceptor'
+import Mercure from '../../mixins/Mercure'
 
 export default {
+  data() {
+    return {
+      index: null
+    }
+  },
+  mixins: [Mercure],
   computed: {
     ...mapGetters({
-      items: 'book/items'
+      items: 'book/items',
+      item: 'book/item'
     }),
     jwt() {
       return this.$store.getters['auth/jwtDecoded']
     }
   },
-  mounted() {
+    mounted() {
     this.getItems()
+  },
+  created() {
+        this.mercureOpen(data => {
+          if(data['@context'] ==='/contexts/Book'){
+          document.getElementById('download-'+this.index).innerHTML='Download';
+          document.getElementById('download-'+this.index).disabled = false;
+          this.$toastr.s('Downloaded '+ data.downloadCount + 'times');
+            this.$store.commit('book/SET_ITEM', data)
+            this.getItems();
+          }else{
+            this.getItems();
+          }
+        });
+
+  },
+    beforeDestroy() {
+    this.mercureClose()
   },
   methods: {
     ...mapActions({
       getItems: 'book/getItems',
       removeItem: 'book/remove'
     }),
-    download(id) {
-      // this.$router.push({ name: 'BookDownload', params: { id: id } })
-        const url = process.env.VUE_APP_API_URL + '/book_update_download_counts'
-        console.log(url)
-        return axios.post(url, '{"book_id": '+id+'}', {
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    }).catch(e => {
+    download(index,id,event) {
+      this.index=index;
+      const url = process.env.VUE_APP_API_URL + '/book_update_download_counts'
+       return axios.post(url, '{"book_id": '+id+'}', {
+       headers: {
+          'Content-Type': 'application/json',
+      }
+    }).then((e) => {
+        event.target.innerHTML='Please wait...';
+        event.target.disabled = true;
+        console.log(event);
+        }).catch(e => {
           // dispatch('processErrors', e.response.data)
         })
 

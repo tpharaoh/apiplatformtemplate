@@ -23,6 +23,7 @@ class BookPostCollectionController
             $data->setOwner($user);
             $data->setTeam($user->getTeam());
         }
+        $data->setDownloadCount(0);
 
         return $data;
     }

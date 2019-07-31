@@ -7,8 +7,12 @@
 
 <script>
 import Loader from './components/Loader'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import fontawesome from '@fortawesome/fontawesome'
+
+
 export default {
   name: 'App',
-  components: { Loader }
+  components: { Loader, FontAwesomeIcon }
 }
 </script>

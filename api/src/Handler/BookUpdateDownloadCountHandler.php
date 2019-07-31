@@ -28,7 +28,7 @@ final class BookUpdateDownloadCountHandler implements MessageHandlerInterface
     public function __invoke(BookUpdateDownloadCount $id)
     {
         
-        sleep(10);
+        sleep(2);
         
         $book = $this->bookRepository->find($id->book_id);
         $this->logger->info(serialize($book));
