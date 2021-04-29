@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@inshopgroup/vue-inshop-crm-form-components": "^1.0.21",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.9",
     "eventsource": "^1.0.7",
